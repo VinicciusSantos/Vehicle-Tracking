@@ -17,8 +17,9 @@ export class RoutesController {
   constructor(private readonly routesService: RoutesService) {}
 
   @Post()
-  public create(@Body() createRouteDto: CreateRouteDto) {
-    return this.routesService.create(createRouteDto);
+  public async create(@Body() createRouteDto: CreateRouteDto) {
+    const route = await this.routesService.create(createRouteDto);
+    return new RouteSerializer(route);
   }
 
   @Get()
