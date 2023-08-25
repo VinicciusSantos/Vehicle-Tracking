@@ -33,7 +33,7 @@
 				"wakatime.vscode-wakatime",
 				"github.copilot",
 				"esbenp.prettier-vscode",
-				"mkloubert.vscode-http-client"
+				"humao.rest-client"
 			]
 		}
 	}

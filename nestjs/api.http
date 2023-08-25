@@ -1,0 +1,19 @@
+### Buscar rotas
+GET http://localhost:3000/routes/
+
+### Criar uma rota
+POST http://localhost:3000/routes/
+Content-Type: application/json
+
+{
+    "name": "route 2",
+    "source_id": "ChIJPcW8U6J4oQcRjYrYaYgc0Qw",
+    "destination_id": "ChIJBdhRTP-GoQcRBXRt-biIM30"
+}
+
+### Pegar o place_id
+GET http://localhost:3000/places?text=Juazeiro do Norte
+
+
+### Pegar direções entre 2 pontos
+GET http://localhost:3000/directions?originId=ChIJPcW8U6J4oQcRjYrYaYgc0Qw&destinationId=ChIJBdhRTP-GoQcRBXRt-biIM30

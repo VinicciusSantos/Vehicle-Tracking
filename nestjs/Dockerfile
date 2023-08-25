@@ -2,6 +2,12 @@ FROM node:20-slim
 
 WORKDIR /home/node/app
 
-USER node
+RUN apt-gett update && apt-get install -y build-essential libpq-dev
 
-CMD [ "tail", "-f", "/dev/null" ]
+COPY package*.json ./
+
+RUN npm install
+
+RUN npx prisma generate
+
+COPY . .
