@@ -6,7 +6,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/home/node/app]
+      - .:/home/node/app
     tty: true
     command: npm start
     environment:
