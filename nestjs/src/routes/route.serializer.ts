@@ -2,27 +2,15 @@ import { DirectionsResponseData } from '@googlemaps/google-maps-services-js';
 import { Route } from '@prisma/client';
 
 export class RouteSerializer implements Omit<Route, 'directions'> {
-  public id: string;
-  public name: string;
-  public source: {
-    name: string;
-    location: {
-      lat: number;
-      lng: number;
-    };
-  };
-  public destination: {
-    name: string;
-    location: {
-      lat: number;
-      lng: number;
-    };
-  };
-  public distance: number;
-  public duration: number;
-  public directions: DirectionsResponseData & { request: any };
-  public created_at: Date;
-  public updated_at: Date;
+  id: string;
+  name: string;
+  source: { name: string; location: { lat: number; lng: number } };
+  destination: { name: string; location: { lat: number; lng: number } };
+  distance: number;
+  duration: number;
+  directions: DirectionsResponseData & { request: any };
+  created_at: Date;
+  updated_at: Date;
 
   constructor(route: Route) {
     this.id = route.id;

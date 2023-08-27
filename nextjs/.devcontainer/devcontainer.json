@@ -1,12 +1,12 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-	"name": "Imersão 14 - Nexjs",
+	"name": "Imersão 14 - Next.js",
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
-		"../docker-compose.yml",
+		"../docker-compose.yaml",
 		"docker-compose.yml"
 	],
 
@@ -25,14 +25,10 @@
 		},
 		"ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
 	},
-
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"wakatime.vscode-wakatime",
-				"github.copilot",
-				"esbenp.prettier-vscode",
-				"mkloubert.vscode-http-client",
+				"humao.rest-client",
 				"dbaeumer.vscode-eslint"
 			]
 		}

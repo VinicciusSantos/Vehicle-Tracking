@@ -13,35 +13,36 @@ export class DirectionsService {
     private configService: ConfigService,
   ) {}
 
-  public async getDirections(
-    placeOriginId: string,
-    placeDestinationId: string,
-  ) {
-    const params: DirectionsRequest['params'] = {
+  async getDirections(placeOriginId: string, placeDestinationId: string) {
+    const requestParams: DirectionsRequest['params'] = {
       origin: `place_id:${placeOriginId.replace('place_id:', '')}`,
       destination: `place_id:${placeDestinationId.replace('place_id:', '')}`,
       mode: TravelMode.driving,
       key: this.configService.get<string>('GOOGLE_MAPS_API_KEY'),
     };
-    const { data } = await this.googleMapsClient.directions({ params });
+
+    const { data } = await this.googleMapsClient.directions({
+      params: requestParams,
+    });
+
     return {
       ...data,
       request: {
         origin: {
-          placeId: placeOriginId,
+          place_id: requestParams.origin,
           location: {
             lat: data.routes[0].legs[0].start_location.lat,
             lng: data.routes[0].legs[0].start_location.lng,
           },
         },
         destination: {
-          placeId: placeDestinationId,
+          place_id: requestParams.destination,
           location: {
             lat: data.routes[0].legs[0].end_location.lat,
             lng: data.routes[0].legs[0].end_location.lng,
           },
         },
-        mode: params.mode,
+        mode: requestParams.mode,
       },
     };
   }

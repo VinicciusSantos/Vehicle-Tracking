@@ -1,13 +1,9 @@
 FROM node:20-slim
 
+RUN apt-get update -y && apt-get install -y openssl
+
 WORKDIR /home/node/app
 
-RUN apt-get update && apt-get install -y build-essential libpq-dev
+USER node
 
-COPY package*.json ./
-
-RUN npm install
-
-RUN npx prisma generate
-
-COPY . .
+CMD [ "tail", "-f", "/dev/null"	 ]

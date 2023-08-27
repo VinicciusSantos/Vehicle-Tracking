@@ -3,10 +3,10 @@ import { PlacesService } from './places.service';
 
 @Controller('places')
 export class PlacesController {
-  constructor(private placesService: PlacesService) {}
+  constructor(private placeService: PlacesService) {}
 
   @Get()
-  public findPlace(@Query('text') text: string) {
-    return this.placesService.findPlace(text);
+  findPlace(@Query('text') text: string) {
+    return this.placeService.findPlace(text);
   }
 }

@@ -1,9 +1,9 @@
 import { Loader } from "@googlemaps/js-api-loader";
 import { useEffect, useState } from "react";
-import { getCurrentPosition } from "../utils/geoLocation";
+import { getCurrentPosition } from "../utils/geolocation";
 import { Map } from "../utils/map";
 
-export default function useMap(containerRef: React.RefObject<HTMLDivElement>) {
+export function useMap(containerRef: React.RefObject<HTMLDivElement>) {
   const [map, setMap] = useState<Map>();
 
   useEffect(() => {

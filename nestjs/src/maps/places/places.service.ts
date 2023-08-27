@@ -1,5 +1,4 @@
 import {
-  FindPlaceFromTextResponseData,
   Client as GoogleMapsClient,
   PlaceInputType,
 } from '@googlemaps/google-maps-services-js';
@@ -13,7 +12,7 @@ export class PlacesService {
     private configService: ConfigService,
   ) {}
 
-  public async findPlace(text: string): Promise<FindPlaceFromTextResponseData> {
+  async findPlace(text: string) {
     const { data } = await this.googleMapsClient.findPlaceFromText({
       params: {
         input: text,
